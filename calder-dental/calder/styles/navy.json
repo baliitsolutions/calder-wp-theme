@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Navy & Peach",
+	"settings": { "color": { "palette": [
+		{ "slug": "pine", "name": "Pine", "color": "#1d2b53" },
+		{ "slug": "pine-soft", "name": "Pine soft", "color": "#34457a" },
+		{ "slug": "mint", "name": "Mint", "color": "#e3ecf8" },
+		{ "slug": "mint-deep", "name": "Mint deep", "color": "#8fb3e6" },
+		{ "slug": "gum", "name": "Gum", "color": "#f6c9a8" },
+		{ "slug": "paper", "name": "Paper", "color": "#fbfcfe" },
+		{ "slug": "ink", "name": "Ink", "color": "#1b2440" },
+		{ "slug": "muted", "name": "Muted", "color": "#4f5a78" },
+		{ "slug": "line", "name": "Line", "color": "#d3ddee" },
+		{ "slug": "white", "name": "White", "color": "#ffffff" }
+	] } }
+}

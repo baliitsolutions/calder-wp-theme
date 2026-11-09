@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Plum & Honey",
+	"settings": { "color": { "palette": [
+		{ "slug": "pine", "name": "Pine", "color": "#4a1f3d" },
+		{ "slug": "pine-soft", "name": "Pine soft", "color": "#6b3559" },
+		{ "slug": "mint", "name": "Mint", "color": "#f3e6ee" },
+		{ "slug": "mint-deep", "name": "Mint deep", "color": "#c99ab8" },
+		{ "slug": "gum", "name": "Gum", "color": "#f2d48a" },
+		{ "slug": "paper", "name": "Paper", "color": "#fdfbfc" },
+		{ "slug": "ink", "name": "Ink", "color": "#33182b" },
+		{ "slug": "muted", "name": "Muted", "color": "#6e5066" },
+		{ "slug": "line", "name": "Line", "color": "#e6d3df" },
+		{ "slug": "white", "name": "White", "color": "#ffffff" }
+	] } }
+}

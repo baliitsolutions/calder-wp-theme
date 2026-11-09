@@ -1,0 +1,221 @@
+/*
+Theme Name: Calder
+Theme URI: https://www.etsy.com/shop/InkAndArtLab
+Author: InkAndArtLab
+Author URI: https://www.etsy.com/shop/InkAndArtLab
+Description: A calm, modern block theme for dental clinics and healthcare practices. Edit every section in the Site Editor: treatments and prices, first-visit steps, team, membership plan, reviews, FAQ and contact details. Includes three colour styles.
+Requires at least: 6.6
+Tested up to: 7.0
+Requires PHP: 7.4
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: calder
+Tags: block-patterns, full-site-editing, one-column, wide-blocks, custom-colors, editor-style, style-variations, business, health
+*/
+
+/* ---------- Header ---------- */
+.calder-header {
+	position: sticky;
+	top: 0;
+	z-index: 50;
+	/* Solid background: a backdrop-filter here would trap the mobile menu overlay inside the header */
+	background: var(--wp--preset--color--paper);
+	border-bottom: 1px solid var(--wp--preset--color--line);
+}
+.admin-bar .calder-header { top: 32px; }
+@media (max-width: 782px) { .admin-bar .calder-header { top: 46px; } }
+.calder-header .wp-block-navigation a { text-decoration: none; }
+.calder-header .wp-block-navigation a:hover { text-decoration: underline; }
+
+/* ---------- Hero visual: toothpaste stripes behind the tooth ---------- */
+.calder-hero-visual {
+	position: relative;
+	isolation: isolate;
+	padding: 6% 12%;
+}
+.calder-hero-visual::before {
+	content: "";
+	position: absolute;
+	left: -12%;
+	right: -12%;
+	top: 22%;
+	height: 58%;
+	z-index: -1;
+	transform: rotate(-14deg);
+	background: linear-gradient(
+		var(--wp--preset--color--mint-deep) 0 30%,
+		transparent 30% 35%,
+		var(--wp--preset--color--white) 35% 65%,
+		transparent 65% 70%,
+		var(--wp--preset--color--gum) 70% 100%
+	);
+	border-radius: 999px;
+}
+.calder-hero-visual .wp-block-image img {
+	filter: drop-shadow(0 18px 24px rgba(15, 59, 52, 0.18));
+}
+.calder-hero-visual .is-style-card {
+	position: relative;
+	margin-top: -2rem;
+	margin-left: auto;
+	max-width: 260px;
+}
+
+/* ---------- Block style: Card ---------- */
+.wp-block-group.is-style-card {
+	background: var(--wp--preset--color--white);
+	border: 1px solid var(--wp--preset--color--line);
+	border-radius: 14px;
+	padding: 1.25rem 1.5rem;
+	box-shadow: var(--wp--preset--shadow--card);
+}
+
+/* ---------- Block style: Checklist ---------- */
+.wp-block-list.is-style-checklist {
+	list-style: none;
+	padding-left: 0;
+}
+.wp-block-list.is-style-checklist li {
+	position: relative;
+	padding: 0.6rem 0 0.6rem 2rem;
+	border-bottom: 1px solid currentColor;
+	border-bottom-color: color-mix(in srgb, currentColor 18%, transparent);
+}
+.wp-block-list.is-style-checklist li::before {
+	content: "";
+	position: absolute;
+	left: 0.25rem;
+	top: 1.05rem;
+	width: 0.9rem;
+	height: 0.5rem;
+	border-left: 3px solid var(--wp--preset--color--mint-deep);
+	border-bottom: 3px solid var(--wp--preset--color--mint-deep);
+	transform: rotate(-45deg);
+}
+
+/* ---------- Block style: Steps (numbered list shown as a sequence) ---------- */
+.wp-block-list.is-style-steps {
+	list-style: none;
+	padding-left: 0;
+	counter-reset: step;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+.wp-block-list.is-style-steps > li {
+	counter-increment: step;
+	position: relative;
+	padding-top: 4rem;
+	color: var(--wp--preset--color--muted);
+}
+.wp-block-list.is-style-steps > li::before {
+	content: counter(step);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	background: var(--wp--preset--color--pine);
+	color: var(--wp--preset--color--white);
+	font: 800 1.25rem/1 var(--wp--preset--font-family--display);
+}
+.wp-block-list.is-style-steps > li strong {
+	display: block;
+	margin-bottom: 0.35rem;
+	color: var(--wp--preset--color--pine);
+	font: 700 var(--wp--preset--font-size--large)/1.15 var(--wp--preset--font-family--display);
+}
+
+/* ---------- Block style: Price list (table) ---------- */
+.wp-block-table.is-style-price-list table {
+	border-collapse: collapse;
+	width: 100%;
+	border-top: 2px solid var(--wp--preset--color--pine);
+}
+.wp-block-table.is-style-price-list td {
+	border: 0;
+	border-bottom: 1px solid var(--wp--preset--color--line);
+	padding: 1.4rem 0;
+	vertical-align: baseline;
+}
+.wp-block-table.is-style-price-list td:first-child { padding-right: 1.5rem; color: var(--wp--preset--color--muted); }
+.wp-block-table.is-style-price-list td:first-child strong {
+	display: block;
+	margin-bottom: 0.2rem;
+	color: var(--wp--preset--color--pine);
+	font: 700 var(--wp--preset--font-size--large)/1.2 var(--wp--preset--font-family--display);
+}
+.wp-block-table.is-style-price-list td:last-child {
+	text-align: right;
+	white-space: nowrap;
+	color: var(--wp--preset--color--muted);
+}
+.wp-block-table.is-style-price-list td:last-child strong {
+	font: 700 1.5rem/1 var(--wp--preset--font-family--display);
+	color: var(--wp--preset--color--pine);
+}
+
+/* ---------- Block style: Hours table ---------- */
+.wp-block-table.is-style-hours table { border-collapse: collapse; width: 100%; }
+.wp-block-table.is-style-hours td { border: 0; border-bottom: 1px solid var(--wp--preset--color--line); padding: 0.55rem 0; }
+.wp-block-table.is-style-hours td:last-child { text-align: right; color: var(--wp--preset--color--muted); }
+
+/* ---------- FAQ (details) ---------- */
+.wp-block-details summary {
+	cursor: pointer;
+	list-style: none;
+	position: relative;
+	padding-right: 2.5rem;
+	font: 700 var(--wp--preset--font-size--large)/1.3 var(--wp--preset--font-family--display);
+	color: var(--wp--preset--color--pine);
+}
+.wp-block-details summary::-webkit-details-marker { display: none; }
+.wp-block-details summary::after {
+	content: "+";
+	position: absolute;
+	right: 0.5rem;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 1.6rem;
+	font-weight: 500;
+	transition: transform 0.2s;
+}
+.wp-block-details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+.wp-block-details > :not(summary) { color: var(--wp--preset--color--muted); }
+
+/* ---------- Team photos ---------- */
+.calder-team .wp-block-image img {
+	aspect-ratio: 4 / 5;
+	object-fit: cover;
+	border-radius: 28px;
+	width: 100%;
+}
+
+/* ---------- Dark section helpers ---------- */
+.has-pine-background-color .wp-block-list.is-style-checklist li { border-bottom-color: rgba(255, 255, 255, 0.14); }
+.has-pine-background-color :where(h1, h2, h3) { color: var(--wp--preset--color--white); }
+
+/* ---------- Accessibility ---------- */
+:where(a, button, summary, input, select, textarea):focus-visible {
+	outline: 3px solid var(--wp--preset--color--mint-deep);
+	outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+	html { scroll-behavior: auto; }
+}
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+/* ---------- Small screens ---------- */
+html, body { overflow-x: clip; }
+@media (max-width: 600px) {
+	.calder-header .wp-block-buttons { display: none; }
+	.calder-team .wp-block-image img { aspect-ratio: 4 / 3; }
+	.calder-hero-visual { padding: 4% 14%; }
+}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content { align-items: flex-start; }
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item a { font-family: var(--wp--preset--font-family--display); font-size: 1.6rem; }
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container { align-items: flex-start; }
