@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calder — Documentation</title>
+<style>
+  body { font: 16px/1.65 system-ui, sans-serif; color: #17302b; background: #fbfdfc; margin: 0; }
+  main { max-width: 760px; margin: 0 auto; padding: 48px 20px 80px; }
+  h1, h2 { color: #0f3b34; line-height: 1.2; }
+  h2 { margin-top: 2.2em; padding-top: 1em; border-top: 1px solid #cfe0da; }
+  code, pre { font-family: ui-monospace, Menlo, monospace; font-size: .92em; background: #dcefe8; border-radius: 6px; }
+  code { padding: 2px 6px; }
+  pre { padding: 14px 16px; overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { text-align: left; padding: 8px; border-bottom: 1px solid #cfe0da; vertical-align: top; }
+</style>
+</head>
+<body>
+<main>
+<h1>Calder — Dental Clinic Landing Page</h1>
+<p>Thank you for your purchase. This guide covers everything you need to put the template online with your own content. No build tools are required: open <code>index.html</code> in a browser and you're running.</p>
+
+<h2>What's included</h2>
+<table>
+  <tr><th>File</th><th>Purpose</th></tr>
+  <tr><td><code>index.html</code></td><td>The page. All text and sections live here.</td></tr>
+  <tr><td><code>assets/css/style.css</code></td><td>All styling. Colours and fonts are variables at the top.</td></tr>
+  <tr><td><code>assets/js/main.js</code></td><td>Mobile menu, opening hours, "open now" status, form validation.</td></tr>
+  <tr><td><code>assets/img/favicon.svg</code></td><td>Browser tab icon.</td></tr>
+  <tr><td><code>LICENSE.txt</code></td><td>What you may and may not do with the template.</td></tr>
+</table>
+
+<h2>Change colours and fonts</h2>
+<p>Open <code>assets/css/style.css</code> and edit the variables in <code>:root</code>. Every colour on the page comes from these.</p>
+<pre>:root {
+  --pine: #0f3b34;      /* main dark colour */
+  --mint: #dcefe8;      /* tinted sections */
+  --mint-deep: #7cc6ad; /* accents */
+  --gum: #f2b8bd;       /* secondary accent */
+}</pre>
+<p>To change fonts, replace the Google Fonts <code>&lt;link&gt;</code> in <code>index.html</code> and update <code>--font-display</code> and <code>--font-body</code>.</p>
+
+<h2>Edit text, prices and contact details</h2>
+<p>All content is plain HTML in <code>index.html</code>, grouped by commented sections (<code>HEADER</code>, <code>HERO</code>, <code>TREATMENTS</code> and so on). Search for these and replace them with your own:</p>
+<ul>
+  <li>Clinic name: <code>Calder Dental Studio</code></li>
+  <li>Phone: <code>(555) 014-2200</code> and <code>tel:+15550142200</code></li>
+  <li>Email: <code>hello@example.com</code></li>
+  <li>Address: <code>48 Harbour Road</code></li>
+</ul>
+<p>To add a treatment, copy one <code>&lt;li&gt;</code> inside <code>&lt;ul class="treatments"&gt;</code>. To remove a section, delete its whole <code>&lt;section&gt;</code> and its link in the menu.</p>
+
+<h2>Set your opening hours</h2>
+<p>Edit <code>OPENING_HOURS</code> at the top of <code>assets/js/main.js</code>. Use 24-hour times, and <code>null</code> for closed days. The hours table and the "Open now / Closed now" card update automatically from this one list.</p>
+<pre>const OPENING_HOURS = {
+  1: ["08:00", "18:00"], // Monday
+  ...
+  0: null                // Sunday (closed)
+};</pre>
+
+<h2>Add team photos</h2>
+<p>Each team photo is a placeholder showing initials. Add a <code>style</code> attribute pointing to your image and the initials disappear:</p>
+<pre>&lt;div class="photo" data-initials="MO"
+     style="background-image:url('assets/img/maya.jpg')"
+     role="img" aria-label="Photo of Dr. Maya Okafor"&gt;&lt;/div&gt;</pre>
+<p>Portrait images around 800 × 1000 px work best.</p>
+
+<h2>Receive booking requests</h2>
+<p>Out of the box the form validates and shows a confirmation, but does not send anything. To receive requests by email, sign up for a form service such as Formspree, Getform or Netlify Forms and add its URL as the form's <code>action</code>:</p>
+<pre>&lt;form class="book-form" novalidate data-book-form
+      action="https://formspree.io/f/your-id" method="POST"&gt;</pre>
+<p>Once an <code>action</code> is set, the script lets valid submissions go through to that service.</p>
+
+<h2>Testimonials</h2>
+<p>The quotes in "From our patients" are sample text. Replace them with real reviews from your patients, with their permission, before publishing.</p>
+
+<h2>Publish</h2>
+<p>Upload the whole folder to any static host: Netlify, Vercel, GitHub Pages, Cloudflare Pages, or the <code>public_html</code> folder of regular web hosting.</p>
+
+<h2>Browser support</h2>
+<p>Current versions of Chrome, Edge, Firefox and Safari, on desktop and mobile. The page respects the visitor's reduced-motion setting and is keyboard accessible.</p>
+
+<h2>Credits</h2>
+<ul>
+  <li>Fonts: Bricolage Grotesque and Atkinson Hyperlegible, via Google Fonts (SIL Open Font License).</li>
+  <li>Illustrations and icons: original, included in the template licence.</li>
+</ul>
+</main>
+</body>
+</html>
